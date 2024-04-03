@@ -21,7 +21,8 @@ export default function Item() {
                         <img className="itemImg" src={item} style={{ width: 200 }} />
                         <div className="itemInfo">
                             <p className="itemName" >Chocho wide denim</p>
-                            <p>2컬러/test</p>
+                            <p>2컬러/</p>
+                            <p>testtest</p>
                             <p className="itemPrice">59,000</p>
                         </div>
                     </div>
