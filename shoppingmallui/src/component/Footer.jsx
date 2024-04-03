@@ -2,7 +2,7 @@
 export default function Footer() {
 
     return (
-        <footer className="d-flex vw-100 justify-content-center position-absolute bottom-0">
+        <footer className="d-flex vw-100 justify-content-center bottom-0">
             <div className="start">
                 <p>CUSTOMER CENTER   02. 391. 4121   Mon-Fri PM 13:00~PM 17:00 / Sat. sun. holiday OFF</p>
                 <p>BANK ACCOUNT.   SHINHAN 140-013-168244   예금주 : 주식회사 비바이브</p>
