@@ -1,13 +1,13 @@
-import item from '../image/1.jpg'
-
+import item from '../image/item.jpg'
+import '../css/Item.css'
 
 export default function Item() {
 
     return (
         <div className="container">
             <div className="category">
-                <p className="categoryTitle">Man</p>
-                <ul className="categoryList d-flex justify-content-center gap-5">
+                <p className="categoryTitle fw-bold">Man</p>
+                <ul className="categoryList d-flex justify-content-center gap-4">
                     <li>OUTWEAR</li>
                     <li>TOP</li>
                     <li>BOTTOM</li>
@@ -15,27 +15,46 @@ export default function Item() {
                     <li>ACC</li>
                 </ul>
             </div>
-            <ul className='d-flex gap-5'>
-                <li>
-                    <div className="item">
-                        <img className="itemImg" src={item} style={{ width: 200 }} />
+            <ul className='itemList d-grid gap-4'>
+                <li className="item ">
+                        <img class="itemImg" src={item}/>
                         <div className="itemInfo">
-                            <p className="itemName" >Chocho wide denim</p>
+                            <p className="itemName fw-bold" >Chocho wide denim</p>
                             <p>2컬러/</p>
-                            <p>testtest</p>
                             <p className="itemPrice">59,000</p>
                         </div>
-                    </div>
                 </li>
-                <li>
-                    <div className="item">
-                        <img className="itemImg" src={item} style={{ width: 200 }} />
+                <li className="item">
+                        <img class="itemImg" src={item}/>
                         <div className="itemInfo">
-                            <p className="itemName" >Chocho wide denim</p>
-                            <p>2컬러/F</p>
+                            <p className="itemName fw-bold" >Chocho wide denim</p>
+                            <p>2컬러/</p>
                             <p className="itemPrice">59,000</p>
                         </div>
-                    </div>
+                </li>
+                <li className="item">
+                        <img class="itemImg" src={item}/>
+                        <div className="itemInfo">
+                            <p className="itemName fw-bold" >Chocho wide denim</p>
+                            <p>2컬러/</p>
+                            <p className="itemPrice">59,000</p>
+                        </div>
+                </li>
+                <li className="item">
+                        <img class="itemImg" src={item}/>
+                        <div className="itemInfo">
+                            <p className="itemName fw-bold" >Chocho wide denim</p>
+                            <p>2컬러/</p>
+                            <p className="itemPrice">59,000</p>
+                        </div>
+                </li>
+                <li className="item">
+                        <img class="itemImg" src={item}/>
+                        <div className="itemInfo">
+                            <p className="itemName fw-bold" >Chocho wide denim</p>
+                            <p>2컬러/</p>
+                            <p className="itemPrice">59,000</p>
+                        </div>
                 </li>
             </ul>
         </div>
