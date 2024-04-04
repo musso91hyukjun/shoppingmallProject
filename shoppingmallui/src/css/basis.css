@@ -1,0 +1,20 @@
+ul,
+li {
+    list-style: none;
+}
+
+a:hover,
+a:visited,
+a:link {
+    text-decoration: none;
+    color: #918f8f;
+}
+
+body,
+ul,
+li,
+p {
+    padding: 0px;
+    margin: 0px;
+    color: #918f8f;
+}

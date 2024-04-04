@@ -1,15 +1,16 @@
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faMagnifyingGlass, faUser, faBagShopping } from '@fortawesome/free-solid-svg-icons';
-import { Modal } from 'bootstrap';
-import '../css/Header.css'
-import '../css/basis.css'
+
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Header() {
+
     return (
-        <header className="d-flex justify-content-between p-3 vw-100 fs-5 mb-5">
+        <header className="d-flex justify-content-between p-5 vw-100 fs-5 mb-5">
             <div>
                 <FontAwesomeIcon icon={faBars} style={{ color: "#B197FC", }} data-bs-toggle="collapse" data-bs-target="#hamberger" />
+
+                {/* 햄버거 토글시 collapse */}
                 <div id="hamberger" className="collapse position-absolute">
                     <div>
                         <div className="bannerWrapper">
@@ -42,19 +43,26 @@ export default function Header() {
                     </div>
                 </div>
             </div>
-            <div style={{ color: "#B197FC", }}>BOXSENSEI</div>
+
+            {/* 로고 */}
+            <div style={{ color: "#B197FC", }}><Link to="/">BOXSENSEI</Link></div>
+
+            {/* 검색, 마이페이지, 장바구니 */}
             <div className="info_Group d-flex justify-content-center gap-3">
                 <div><FontAwesomeIcon icon={faMagnifyingGlass} style={{ color: "#B197FC", }} data-bs-toggle="modal" data-bs-target="#searchModal" /></div>
-                <div><FontAwesomeIcon icon={faUser} style={{ color: "#B197FC", }} /></div>
-                <div><FontAwesomeIcon icon={faBagShopping} style={{ color: "#B197FC", }} /></div>
+                <div><Link to="/mypage"><FontAwesomeIcon icon={faUser} style={{ color: "#B197FC", }} /></Link></div>
+                <div><Link to="/cart"><FontAwesomeIcon icon={faBagShopping} style={{ color: "#B197FC", }} /></Link></div>
             </div>
 
+            {/* 검색창 */}
             <div className="modal" id="searchModal">
                 <div className="modal-dialog">
                     <div className="modal-content">
-                        <div className="modal-body d-flex">
-                            <input className="" type="text" name="searchItem" id="searchItem" />
-                            <button className="btn btn-primary">search</button>
+                        <div className="modal-body">
+                            <div className='input-group'>
+                                <input className="form-control" type="text" name="searchItem" id="searchItem" />
+                                <button className="btn btn-primary">search</button>
+                            </div>
                         </div>
                     </div>
                 </div>

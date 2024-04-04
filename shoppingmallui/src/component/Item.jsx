@@ -1,5 +1,3 @@
-import item from '../image/1.jpg'
-
 
 export default function Item() {
 
@@ -18,7 +16,7 @@ export default function Item() {
             <ul className='d-flex gap-5'>
                 <li>
                     <div className="item">
-                        <img className="itemImg" src={item} style={{ width: 200 }} />
+                        <img className="itemImg" style={{ width: 200 }} />
                         <div className="itemInfo">
                             <p className="itemName" >Chocho wide denim</p>
                             <p>2컬러/test</p>
@@ -28,7 +26,7 @@ export default function Item() {
                 </li>
                 <li>
                     <div className="item">
-                        <img className="itemImg" src={item} style={{ width: 200 }} />
+                        <img className="itemImg" style={{ width: 200 }} />
                         <div className="itemInfo">
                             <p className="itemName" >Chocho wide denim</p>
                             <p>2컬러/F</p>
