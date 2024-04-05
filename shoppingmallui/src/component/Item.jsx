@@ -55,6 +55,7 @@ export default function Item() {
                         <p>2컬러/</p>
                         <p className={`${styles.itemPrice}`}>59,000</p>
                     </div>
+                
                 </li>
             </ul>
         </div>
