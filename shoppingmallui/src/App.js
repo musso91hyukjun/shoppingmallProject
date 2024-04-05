@@ -12,6 +12,7 @@ import Mileage from './component/Mileage';
 import Signup from './component/Signup';
 import Order from './component/Order';
 import ModifyProfile from './component/ModifyProfile';
+import Item from './component/Item';
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/mileage" element={<Mileage />} />
           <Route path="/mypage" element={<Mypage />} />
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Item />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>

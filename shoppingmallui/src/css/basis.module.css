@@ -17,5 +17,17 @@ p {
     padding: 0px;
     margin: 0px;
     color: #918f8f;
+}
+
+html {
+    height: 100vh;
+}
+
+body {
     overflow-x: hidden;
+}
+
+.content {
+    margin-top: 150px;
+    height: calc(100vh - 400px);
 }

@@ -6,7 +6,7 @@ export default function ModifyProfile() {
         <div className="ModifyProfile">
             <form className="signupForm w-25 m-auto pt-3" >
                 <h2 className="mb-5">회원정보 수정</h2>
-                <ul >
+                <ul className="d-flex flex-column">
                     <li><input className="w-100 mb-3 form-control" type="text" name="userid" id="userid" placeholder='ID' /></li>
                     <li><input className="w-100 mb-3 form-control" type="password" name="password" id="password" placeholder='Password' /></li>
                     <li><input className="w-100 mb-3 form-control" type="password" name="checkPassword" id="newPassword" placeholder='New Password' /></li>

@@ -13,7 +13,7 @@ export default function Mypage() {
                 <p>MY ORDER INFO</p>
             </div>
             <div>
-                <ul className="list">
+                <ul className="list d-flex flex-column">
                     <li>
                         <div className="listItem d-flex justify-content-between align-items-center w-50 m-auto border-bottom mb-4 pb-4">
                             <p>Log out</p>

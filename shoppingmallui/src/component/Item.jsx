@@ -17,44 +17,44 @@ export default function Item() {
             </div>
             <ul className='itemList d-grid gap-4'>
                 <li className="item ">
-                        <img class="itemImg" src={item}/>
-                        <div className="itemInfo">
-                            <p className="itemName fw-bold" >Chocho wide denim</p>
-                            <p>2컬러/</p>
-                            <p className="itemPrice">59,000</p>
-                        </div>
+                    <img className="itemImg" src={item} />
+                    <div className="itemInfo">
+                        <p className="itemName fw-bold" >Chocho wide denim</p>
+                        <p>2컬러/</p>
+                        <p className="itemPrice">59,000</p>
+                    </div>
                 </li>
                 <li className="item">
-                        <img class="itemImg" src={item}/>
-                        <div className="itemInfo">
-                            <p className="itemName fw-bold" >Chocho wide denim</p>
-                            <p>2컬러/</p>
-                            <p className="itemPrice">59,000</p>
-                        </div>
+                    <img className="itemImg" src={item} />
+                    <div className="itemInfo">
+                        <p className="itemName fw-bold" >Chocho wide denim</p>
+                        <p>2컬러/</p>
+                        <p className="itemPrice">59,000</p>
+                    </div>
                 </li>
                 <li className="item">
-                        <img class="itemImg" src={item}/>
-                        <div className="itemInfo">
-                            <p className="itemName fw-bold" >Chocho wide denim</p>
-                            <p>2컬러/</p>
-                            <p className="itemPrice">59,000</p>
-                        </div>
+                    <img className="itemImg" src={item} />
+                    <div className="itemInfo">
+                        <p className="itemName fw-bold" >Chocho wide denim</p>
+                        <p>2컬러/</p>
+                        <p className="itemPrice">59,000</p>
+                    </div>
                 </li>
                 <li className="item">
-                        <img class="itemImg" src={item}/>
-                        <div className="itemInfo">
-                            <p className="itemName fw-bold" >Chocho wide denim</p>
-                            <p>2컬러/</p>
-                            <p className="itemPrice">59,000</p>
-                        </div>
+                    <img className="itemImg" src={item} />
+                    <div className="itemInfo">
+                        <p className="itemName fw-bold" >Chocho wide denim</p>
+                        <p>2컬러/</p>
+                        <p className="itemPrice">59,000</p>
+                    </div>
                 </li>
                 <li className="item">
-                        <img class="itemImg" src={item}/>
-                        <div className="itemInfo">
-                            <p className="itemName fw-bold" >Chocho wide denim</p>
-                            <p>2컬러/</p>
-                            <p className="itemPrice">59,000</p>
-                        </div>
+                    <img className="itemImg" src={item} />
+                    <div className="itemInfo">
+                        <p className="itemName fw-bold" >Chocho wide denim</p>
+                        <p>2컬러/</p>
+                        <p className="itemPrice">59,000</p>
+                    </div>
                 </li>
             </ul>
         </div>
