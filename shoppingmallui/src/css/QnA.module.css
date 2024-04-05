@@ -1,0 +1,57 @@
+a{
+    text-decoration: none;
+    color: #808080;
+}
+
+.selectList{
+    width: 100px;
+    margin-bottom: 10px;
+}
+.categoryTitle{
+    margin-top: 30px;
+}
+
+/* QnA 게시글 목록 */
+.qnaBox{
+    width: 1000px;
+    margin: 0 auto;
+}
+.qnaList{
+    border-top: 2px solid #ddd;
+}
+.qnaItem{
+    width: 100%;
+    border-bottom: 2px solid #ddd;
+    margin-top: 10px;
+}
+.qnaImg{
+    width: 80px;
+    height: 100px;
+    padding: 5px 10px;
+    margin-left: 10px;
+}
+.qnaInfo{
+    width: 100%;
+    text-align: left;
+    padding-left: 10px;
+}
+.qnaTitle{
+    padding-top: 8px;
+    font-size: 1em;
+}
+.qnaWriter{
+    font-size: .8em;
+    padding-left: 8px;
+    padding-top: 5px;
+}
+
+/* 페이징 */
+.qnaPage{
+    margin:20px 0
+}
+.qnaWriteBtn {
+    border-radius: 14px;
+    color: #fff;
+    background-color: black;
+    padding: 5px 15px;
+  }
