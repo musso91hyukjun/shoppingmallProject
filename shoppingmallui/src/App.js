@@ -29,6 +29,7 @@ function App() {
           <Route path="/mypage" element={<Mypage />} />
           <Route path="/" element={<Item />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/qna" element={<QnA />} />
         </Routes>
       </BrowserRouter>
     </div>
