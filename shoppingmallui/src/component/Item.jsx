@@ -45,7 +45,7 @@ export default function Item() {
                     <div className={`${styles.itemInfo}`}>
                         <p className={`${styles.itemName} fw-bold`} >Chocho wide denim</p>
                         <p>2컬러/</p>
-                        <p className={`${styles.itemPrice}`}>59,000</p>
+                        <p className={`${styles.itemPrice}`}>59,000aa</p>
                     </div>
                 </li>
                 <li className={`${styles.item}`}>

@@ -6,12 +6,14 @@ import Header from './component/Header'
 import Footer from './component/Footer';
 import './css/Footer.css'
 import Item from './component/Item';
+import QnA from './component/QnA';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Item />
+      {/* <Item /> */}
+      <QnA />
       <Footer />
     </div>
   );
