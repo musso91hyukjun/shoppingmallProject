@@ -36,7 +36,7 @@ export default function Header() {
                         <ul className='member d-flex justify-content-between'>
                             <li><a href="">MYPAGE</a></li>
                             <li><a href="">VIEW</a></li>
-                            <li><a href="">Q&A</a></li>
+                            <Link to={"/qna"}><li><a href="">Q&A</a></li></Link>
                             <li><a href="">REVIEW</a></li>
                             <li><a href="">NOTICE</a></li>
                         </ul>
