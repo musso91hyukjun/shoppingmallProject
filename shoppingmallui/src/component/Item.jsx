@@ -1,13 +1,13 @@
 import item from '../image/item.jpg'
-import '../css/Item.css'
+import styles from '../css/Item.module.css'
 
 export default function Item() {
 
     return (
         <div className="container">
             <div className="category">
-                <p className="categoryTitle fw-bold">Man</p>
-                <ul className="categoryList d-flex justify-content-center gap-4">
+                <p className={`${styles.categoryTitle} fw-bold`}>Man</p>
+                <ul className={`${styles.categoryList} d-flex justify-content-center gap-4`}>
                     <li>OUTWEAR</li>
                     <li>TOP</li>
                     <li>BOTTOM</li>
@@ -15,46 +15,47 @@ export default function Item() {
                     <li>ACC</li>
                 </ul>
             </div>
-            <ul className='itemList d-grid gap-4'>
-                <li className="item ">
-                    <img className="itemImg" src={item} />
-                    <div className="itemInfo">
-                        <p className="itemName fw-bold" >Chocho wide denim</p>
+            <ul className={`${styles.itemList} d-grid gap-4`}>
+                <li className={`${styles.item}`}>
+                    <img class={`${styles.itemImg}`} src={item}/>
+                    <div className={`${styles.itemInfo}`}>
+                        <p className={`${styles.itemName} fw-bold`} >Chocho wide denim</p>
                         <p>2컬러/</p>
-                        <p className="itemPrice">59,000</p>
+                        <p className={`${styles.itemPrice}`}>59,000</p>
                     </div>
                 </li>
-                <li className="item">
-                    <img className="itemImg" src={item} />
-                    <div className="itemInfo">
-                        <p className="itemName fw-bold" >Chocho wide denim</p>
+                <li className={`${styles.item}`}>
+                    <img class={`${styles.itemImg}`} src={item}/>
+                    <div className={`${styles.itemInfo}`}>
+                        <p className={`${styles.itemName} fw-bold`} >Chocho wide denim</p>
                         <p>2컬러/</p>
-                        <p className="itemPrice">59,000</p>
+                        <p className={`${styles.itemPrice}`}>59,000</p>
                     </div>
                 </li>
-                <li className="item">
-                    <img className="itemImg" src={item} />
-                    <div className="itemInfo">
-                        <p className="itemName fw-bold" >Chocho wide denim</p>
+                <li className={`${styles.item}`}>
+                    <img class={`${styles.itemImg}`} src={item}/>
+                    <div className={`${styles.itemInfo}`}>
+                        <p className={`${styles.itemName} fw-bold`} >Chocho wide denim</p>
                         <p>2컬러/</p>
-                        <p className="itemPrice">59,000</p>
+                        <p className={`${styles.itemPrice}`}>59,000</p>
                     </div>
                 </li>
-                <li className="item">
-                    <img className="itemImg" src={item} />
-                    <div className="itemInfo">
-                        <p className="itemName fw-bold" >Chocho wide denim</p>
+                <li className={`${styles.item}`}>
+                    <img class={`${styles.itemImg}`} src={item}/>
+                    <div className={`${styles.itemInfo}`}>
+                        <p className={`${styles.itemName} fw-bold`} >Chocho wide denim</p>
                         <p>2컬러/</p>
-                        <p className="itemPrice">59,000</p>
+                        <p className={`${styles.itemPrice}`}>59,000aa</p>
                     </div>
                 </li>
-                <li className="item">
-                    <img className="itemImg" src={item} />
-                    <div className="itemInfo">
-                        <p className="itemName fw-bold" >Chocho wide denim</p>
+                <li className={`${styles.item}`}>
+                    <img class={`${styles.itemImg}`} src={item}/>
+                    <div className={`${styles.itemInfo}`}>
+                        <p className={`${styles.itemName} fw-bold`} >Chocho wide denim</p>
                         <p>2컬러/</p>
-                        <p className="itemPrice">59,000</p>
+                        <p className={`${styles.itemPrice}`}>59,000</p>
                     </div>
+                
                 </li>
             </ul>
         </div>

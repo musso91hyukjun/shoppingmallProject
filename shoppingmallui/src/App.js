@@ -13,6 +13,7 @@ import Signup from './component/Signup';
 import Order from './component/Order';
 import ModifyProfile from './component/ModifyProfile';
 import Item from './component/Item';
+import QnA from './component/QnA';
 
 function App() {
   return (
