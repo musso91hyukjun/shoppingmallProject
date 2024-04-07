@@ -1,26 +1,27 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faMagnifyingGlass, faUser, faBagShopping } from '@fortawesome/free-solid-svg-icons';
-
-import { Link, useNavigate } from 'react-router-dom';
+import s from '../css/Header.module.css';
+import cn from 'classnames';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
 
     return (
-        <header className="d-flex justify-content-between p-5 vw-100 fs-5 mb-5">
+        <header className="d-flex justify-content-between w-100 fs-5 position-fixed">
             <div>
                 <FontAwesomeIcon icon={faBars} style={{ color: "#B197FC", }} data-bs-toggle="collapse" data-bs-target="#hamberger" />
 
                 {/* 햄버거 토글시 collapse */}
-                <div id="hamberger" className="collapse position-absolute">
+                <div id="hamberger" className={cn(s.hamberger, "collapse", "bg-black")}>
                     <div>
-                        <div className="bannerWrapper">
+                        <div className={cn(s.bannerWrapper)}>
                             <img src="/image/1.jpg" alt="" />
                         </div>
-                        <div className='d-flex gap-5 justify-content-center m-3'>
+                        <div className='d-flex gap-5 justify-content-center m-3 pt-5'>
                             <a href="">MAN</a>
                             <a href="">WOMAN</a>
                         </div>
-                        <div className='groupNav' >
+                        <div className='groupNav pt-3' >
                             <h2><a href="">ONLINE STORE</a></h2>
                             <h2><a href="">B BRAND</a></h2>
                             <h2><a href="">AAME</a></h2>
@@ -33,7 +34,7 @@ export default function Header() {
                         </div>
                     </div>
                     <div className='memberWrapper'>
-                        <ul className='member d-flex justify-content-between'>
+                        <ul className='member d-flex justify-content-between mb-5 ps-3 pe-3'>
                             <li><a href="">MYPAGE</a></li>
                             <li><a href="">VIEW</a></li>
                             <li><a href="">Q&A</a></li>
