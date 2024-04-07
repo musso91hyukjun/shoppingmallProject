@@ -14,6 +14,8 @@ import Order from './component/Order';
 import ModifyProfile from './component/ModifyProfile';
 import Item from './component/Item';
 import QnA from './component/QnA';
+import Cart from './component/Cart';
+import QnAWrite from './component/QnAWrite';
 
 function App() {
   return (
@@ -29,6 +31,9 @@ function App() {
           <Route path="/mypage" element={<Mypage />} />
           <Route path="/" element={<Item />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/qna" element={<QnA />} />
+          <Route path='/qnaWrite' element={<QnAWrite/>} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>
     </div>
