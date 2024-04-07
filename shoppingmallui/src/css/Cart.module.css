@@ -1,0 +1,42 @@
+.cartList{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.cartItem{
+    border-bottom: 1px solid #ddd;
+    padding: 10px 15px;
+}
+.CartImg{
+    width: 100px;
+    height: 120px;
+    padding: 5px 10px;
+}
+.delWishBtn{
+    width: 130px;
+}
+.delWishBtn>button:first-child{
+    margin: 0 auto;
+}
+
+.Pay{
+    margin-right: 20px;
+    margin-top: 15px;
+    width: 300px;
+    float: right;
+}
+.Product, .Shipping, .SubTotal{
+    width: 100%;
+    float: right;
+    margin: 3px 0;
+}
+.SelectBtn button{
+    width: 100px;
+    width: 145px;
+}
+.SelectBtn > button:first-child{
+    margin-right: 5px;
+}
+
+
+

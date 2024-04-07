@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styles from '../css/QnA.module.css'
 import item from '../image/item.jpg'
 
@@ -23,7 +24,7 @@ export default function QnA(){
                         </select>
                     </div>
                     <div className='d-inline-block'>
-                        <button className={`${styles.qnaWriteBtn}`}>Write</button>
+                        <Link to='/qnaWrite'className={`${styles.qnaWriteBtn}`}>Write</Link>
                     </div>  
                 </div>
                 
@@ -31,30 +32,12 @@ export default function QnA(){
                 <ul className={`${styles.qnaList}`}>
                     <li className={`${styles.qnaItem} d-flex`}>
                         <img class={`${styles.qnaImg} d-inline-block`} src={item}/>
-                        <div className={`${styles.qnaInfo} d-inline-block`}>
-                            <p className={`${styles.qnaTitle} fw-bold`}>배송문의 드립니다.</p>
-                            <p className={`${styles.qnaWriter} `}>정인식</p>
-                        </div>
-                    </li>
-                    <li className={`${styles.qnaItem} d-flex`}>
-                        <img class={`${styles.qnaImg} d-inline-block`} src={item}/>
-                        <div className={`${styles.qnaInfo} d-inline-block`}>
-                            <p className={`${styles.qnaTitle} fw-bold`}>배송문의 드립니다.</p>
-                            <p className={`${styles.qnaWriter} `}>정인식</p>
-                        </div>
-                    </li>
-                    <li className={`${styles.qnaItem} d-flex`}>
-                        <img class={`${styles.qnaImg} d-inline-block`} src={item}/>
-                        <div className={`${styles.qnaInfo} d-inline-block`}>
-                            <p className={`${styles.qnaTitle} fw-bold`}>배송문의 드립니다.</p>
-                            <p className={`${styles.qnaWriter} `}>정인식</p>
-                        </div>
-                    </li>
-                    <li className={`${styles.qnaItem} d-flex`}>
-                        <img class={`${styles.qnaImg} d-inline-block`} src={item}/>
-                        <div className={`${styles.qnaInfo} d-inline-block`}>
-                            <p className={`${styles.qnaTitle} fw-bold`}>배송문의 드립니다.</p>
-                            <p className={`${styles.qnaWriter} `}>정인식</p>
+                        <div className={`${styles.qnaInfo}`}>
+                            <div className={`${styles.qnaInfoBox}d-inline-block d-flex justify-content-between pt-1`}>
+                                <p className={`${styles.qnaTitle} fw-bold d-inline-block`}>배송문의 드립니다.</p>
+                                <p className={`${styles.qnaWriter} d-inline-block`}>정인식</p>
+                            </div>
+                            <p className='text-end pt-4'>2024-03-04</p>
                         </div>
                     </li>
                 </ul>   
