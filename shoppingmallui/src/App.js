@@ -23,6 +23,7 @@ function App() {
 
       <BrowserRouter>
         <Header />
+        <Signup />
         <Routes>
           <Route path="/member/modify" element={<ModifyProfile />} />
           <Route path="/order" element={<Order />} />
@@ -32,7 +33,7 @@ function App() {
           <Route path="/" element={<Item />} />
           <Route path="/login" element={<Login />} />
           <Route path="/qna" element={<QnA />} />
-          <Route path='/qnaWrite' element={<QnAWrite/>} />
+          <Route path='/qnaWrite' element={<QnAWrite />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>

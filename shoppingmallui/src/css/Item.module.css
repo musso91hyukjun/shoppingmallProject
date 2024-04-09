@@ -1,39 +1,50 @@
-ul{
+ul {
     list-style-type: none;
     overflow: auto;
     padding: 0;
 }
-li{
+
+li {
     float: left;
 }
-p{
-    margin:0;
+
+p {
+    margin: 0;
 }
 
 /* 카테고리 */
-.categoryTitle{
+.categoryTitle {
     font-size: 18px;
     margin-bottom: 5px;
 }
-.categoryList{
+
+.categoryList {
     font-size: 12px;
 }
 
 /* 상품 리스트 */
-.itemList{
+.itemList {
     grid-template-columns: repeat(4, 1fr);
 }
-.item{
+
+.item {
     flex: 1 1 22%;
 }
-.itemImg{
+
+.itemImg {
     width: 300px;
     height: 460px;
 }
-.itemInfo{
+
+.itemInfo {
     font-size: 12px;
     padding-left: 6px;
 }
-.itemInfo p{
+
+.itemInfo p {
     text-align: left;
+}
+
+.content {
+    padding-top: 100px;
 }
