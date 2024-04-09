@@ -1,21 +1,28 @@
 package com.project.shoppingmall.domein;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import static jakarta.persistence.FetchType.*;
 
 @Entity
-@Table(name = "ORDER_ITEM")
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class OrderItem {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ORDER_ITEM_ID")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "ORDER_ID")
     private Order order;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ITEM_ID")
+    @ManyToOne
+    @JoinColumn( name = "ITEM_ID")
     private Item item;
-
 }

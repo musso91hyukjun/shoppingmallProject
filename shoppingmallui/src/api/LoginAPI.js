@@ -6,5 +6,5 @@ const apiClient = axios.create(
     }
 )
 
-export const findByUsername
-    = (username) => apiClient.get()
+export const signup =
+    (formData) => apiClient.post(`/signup`, formData);
