@@ -46,4 +46,7 @@ public class Item {
     private ItemInfo itemInfo;
 
     // 깃허브 test;;
+
+    // 답장입니다
+    // 굿굿 잘되네요
 }
