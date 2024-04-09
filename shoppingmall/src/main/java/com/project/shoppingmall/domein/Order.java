@@ -1,31 +1,36 @@
 package com.project.shoppingmall.domein;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+
+import static jakarta.persistence.EnumType.*;
+import static jakarta.persistence.FetchType.*;
 
 @Entity
-@Getter
 @Table(name = "ORDERS")
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Order {
 
-    @Id @GeneratedValue
-    @Column(name = "ORDER_ID")
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ORDERS_ID")
     private Long id;
-
     private LocalDateTime orderDate;
 
-    @Enumerated(EnumType.STRING)
-    private OrderStatus status;
+    @Enumerated(STRING)
+    private OrderStatus orderStatus;
 
-    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MEMBER_ID")
+    @ManyToOne(fetch = LAZY)
     private Member member;
 
-    @OneToMany(mappedBy = "order")
-    List<OrderItem> orderItems = new ArrayList<>();
+
+
 
 }
+

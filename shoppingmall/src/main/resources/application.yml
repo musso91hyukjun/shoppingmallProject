@@ -1,6 +1,7 @@
 spring:
   datasource:
     url: jdbc:h2:tcp://localhost/~/shoppingmall
+#    url : jdbc:mysql://localhost:3306/shoppingmall
     username: sa
     password:
     driver-class-name: org.h2.Driver
