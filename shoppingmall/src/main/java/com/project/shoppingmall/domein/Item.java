@@ -45,9 +45,9 @@ public class Item {
     @OneToOne(fetch = LAZY)
     private ItemInfo itemInfo;
 
-    adskas
-    jdlkasd
-    asasdasd
+    충돌기대중
+    충돌나라
+    해결한번해봅시다
     //1212421
 
     // 굿굿 잘되네요
