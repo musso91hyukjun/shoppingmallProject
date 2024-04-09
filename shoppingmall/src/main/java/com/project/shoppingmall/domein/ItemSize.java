@@ -1,5 +1,10 @@
 package com.project.shoppingmall.domein;
 
 public enum ItemSize {
-    FREE
+    FREE,
+    S,
+    M,
+    L,
+    XL,
+    XXL
 }
