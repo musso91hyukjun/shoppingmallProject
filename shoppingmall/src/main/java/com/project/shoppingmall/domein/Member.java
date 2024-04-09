@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
+import static jakarta.persistence.FetchType.*;
+
 @Entity
 @Getter
 @AllArgsConstructor
@@ -33,7 +35,19 @@ public class Member {
     @Enumerated(EnumType.STRING)
     private UserTypes userType;
 
-    @OneToMany
-    private Coupon coupon;
+    @OneToOne(fetch = LAZY)
+    @JoinColumn(name = "CART_ID")
+    private Cart cart;
 
+    public Member(Long id, String userid, String password, String name, String tel, int mileage, Address address, Account account, UserTypes userType) {
+        this.id = id;
+        this.userid = userid;
+        this.password = password;
+        this.name = name;
+        this.tel = tel;
+        this.mileage = mileage;
+        this.address = address;
+        this.account = account;
+        this.userType = userType;
+    }
 }

@@ -20,9 +20,6 @@ public class Cart {
     @Column(name = "CART_ID")
     private Long id;
 
-    @OneToOne(mappedBy = "cart", fetch = LAZY)
-    private Member member;
-
     @OneToMany(mappedBy = "cart")
     private List<CartItem> cartItems = new ArrayList<>();
 
