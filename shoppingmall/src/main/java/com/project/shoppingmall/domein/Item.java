@@ -45,8 +45,8 @@ public class Item {
     @OneToOne(fetch = LAZY)
     private ItemInfo itemInfo;
 
-    // 깃허브 test;;
+    //adskasjdlkasd
+    //1212421
 
-    // 답장입니다
     // 굿굿 잘되네요
 }
