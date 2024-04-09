@@ -45,7 +45,9 @@ public class Item {
     @OneToOne(fetch = LAZY)
     private ItemInfo itemInfo;
 
-    //adskasjdlkasd
+    adskas
+    jdlkasd
+    asasdasd
     //1212421
 
     // 굿굿 잘되네요
