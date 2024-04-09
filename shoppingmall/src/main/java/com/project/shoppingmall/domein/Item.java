@@ -44,4 +44,6 @@ public class Item {
 
     @OneToOne(fetch = LAZY)
     private ItemInfo itemInfo;
+
+    // 깃허브 test;;
 }
