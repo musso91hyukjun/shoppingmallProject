@@ -23,4 +23,6 @@ public class Cart {
     @OneToMany(mappedBy = "cart")
     private List<CartItem> cartItems = new ArrayList<>();
 
+    private int test;
+
 }
