@@ -8,3 +8,5 @@ const apiClient = axios.create(
 
 export const signup =
     (formData) => apiClient.post(`/signup`, formData);
+
+

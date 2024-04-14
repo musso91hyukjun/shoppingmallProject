@@ -26,6 +26,10 @@ public class SecurityConfig {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.
                 csrf().disable()
+                .authorizeHttpRequests()
+                .requestMatchers("/mypage","/order","/member/modify","mileage","/coupon","/address").authenticated()
+                .requestMatchers("/","/cart","/man","/woman","/goodprice","/login","/signup").permitAll()
+                .and()
                 .cors(corsCustomizer -> corsCustomizer.configurationSource(new CorsConfigurationSource() {
                     @Override
                     public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
@@ -35,7 +39,6 @@ public class SecurityConfig {
                         config.setAllowedMethods(Collections.singletonList("*"));
                         config.setAllowCredentials(true);
                         config.setAllowedHeaders(Collections.singletonList("*"));
-                        config.setExposedHeaders(Arrays.asList("Authorization"));
                         config.setMaxAge(3600L);
                         return config;
                     }
