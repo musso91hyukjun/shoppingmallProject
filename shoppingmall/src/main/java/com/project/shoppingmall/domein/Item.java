@@ -40,13 +40,9 @@ public class Item {
     List<OrderItem> orderItems = new ArrayList<>();
 
     @OneToMany(mappedBy = "item")
-    List<CartItem> cartItems123 = new ArrayList<>();
+    List<CartItem> cartItems = new ArrayList<>();
 
     @OneToOne(fetch = LAZY)
     private ItemInfo itemInfo;
 
-
-    //1212421
-
-    // 굿굿 잘되네요
 }
