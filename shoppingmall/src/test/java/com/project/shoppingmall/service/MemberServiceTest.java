@@ -1,7 +1,6 @@
 package com.project.shoppingmall.service;
 
 import com.project.shoppingmall.domein.Member;
-import com.project.shoppingmall.dto.MemberDto;
 import com.project.shoppingmall.repository.MemberRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
@@ -35,18 +34,18 @@ class MemberServiceTest {
     public void join() {
 
         Member member = new Member("test", "kwon", "1234");
-        MemberDto savedMember = memberService.join(member.toDto());
-        Member findMember = memberRepository.findById(savedMember.getId())
-                .orElseThrow(() -> new EntityNotFoundException("Member not found with id : " + savedMember.getId()));
+        memberService.join(member.toDto());
+        Optional<Member> findMember = Optional.ofNullable(memberRepository.findByUserid(member.getUserid())
+                .orElseThrow(() -> new EntityNotFoundException("Member not found with id : " + member.getId())));
 
-        assertThat(member.getUserid()).isEqualTo(findMember.getUserid());
-        passwordEncoder.matches(member.getPassword(), findMember.getPassword());
+        assertThat(member.getUserid()).isEqualTo(findMember.get().getUserid());
+        passwordEncoder.matches(member.getPassword(), findMember.get().getPassword());
     }
 
     @Test
     public void duplicateMember(){
         Member member = new Member("test", "kwon", "1234");
-        MemberDto savedMember = memberService.join(member.toDto());
+        memberService.join(member.toDto());
 
         Member member2 = new Member("test", "kwon", "1234");
 

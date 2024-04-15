@@ -20,8 +20,13 @@ public class MemberController {
     @PostMapping("/join")
     public ResponseEntity<String> join(@RequestBody MemberDto member) {
 
-        memberService.join(member);
-        return ResponseEntity.status(HttpStatus.CREATED).body("success");
+        return memberService.join(member);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<MemberDto> login(@RequestBody MemberDto member){
+
+        return memberService.login(member);
     }
 
 }

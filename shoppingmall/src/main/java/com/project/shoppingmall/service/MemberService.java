@@ -4,11 +4,13 @@ import com.project.shoppingmall.domein.Member;
 import com.project.shoppingmall.dto.MemberDto;
 import com.project.shoppingmall.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -19,23 +21,39 @@ public class MemberService {
     private final PasswordEncoder passwordEncoder;
 
 
-    public MemberDto join(MemberDto memberDto) {
+    public ResponseEntity<String> join(MemberDto memberDto) {
         duplicateMember(memberDto);
         Member member = memberDto.toEntity();
         String encodePassword = passwordEncoder.encode(member.getPassword());
         member.changePassword(encodePassword);
+        memberRepository.save(member);
 
-//        return new MemberDto(memberRepository.save(member));
-        return memberRepository.save(member).toDto();
+        return ResponseEntity.status(HttpStatus.CREATED).body("create success");
     }
 
 
     public void duplicateMember(MemberDto member) {
-        List<Member> findMember = memberRepository.findByUserid(member.getUserid());
-        if (!findMember.isEmpty()) {
+        Optional<Member> findMember = memberRepository.findByUserid(member.getUserid());
+        if (findMember.isPresent()) {
             throw new IllegalStateException("중복된 회원입니다");
         }
     }
 
 
+    public ResponseEntity<MemberDto> login(MemberDto member) {
+        Optional<Member> findMembers = memberRepository.findByUserid(member.getUserid());
+        // 사용자가 있을경우
+        if (findMembers.isPresent()) {
+            if(passwordEncoder.matches(member.getPassword(), findMembers.get().getPassword())){
+                return ResponseEntity.status(HttpStatus.OK).body(findMembers.get().toDto());
+            } else {
+                // 비밀번호 오류
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+            }
+
+        // 사용자가 없을 경우
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+    }
 }
