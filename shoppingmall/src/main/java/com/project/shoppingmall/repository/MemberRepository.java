@@ -1,27 +1,15 @@
 package com.project.shoppingmall.repository;
 
-
-import com.project.shoppingmall.domein.Account;
-import com.project.shoppingmall.domein.Address;
 import com.project.shoppingmall.domein.Member;
-import com.project.shoppingmall.domein.UserTypes;
-import jakarta.persistence.EntityManager;
-import lombok.RequiredArgsConstructor;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Optional;
+
+
 @Repository
-@RequiredArgsConstructor
-public class MemberRepository {
-
-    private final EntityManager em;
-
-    public void save() {
-        Address address = new Address("test", "test", 11111);
-        Account account = new Account("woori", "1234", "kim");
-
-        Member member = new Member(1L, "test", "1234", "kim", "010-1111-1111", 3000, address, account, UserTypes.USER);
-        em.persist(member);
-
-    }
-
+public interface MemberRepository extends JpaRepository<Member,Long> {
+    Optional<Member> findByUserid(String userid);
 }

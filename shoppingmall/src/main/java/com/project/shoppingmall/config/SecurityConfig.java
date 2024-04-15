@@ -1,12 +1,19 @@
 package com.project.shoppingmall.config;
 
 
-import jakarta.servlet.FilterChain;
+import com.project.shoppingmall.filter.CsrfCookieFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.security.web.csrf.CsrfTokenRequestAttributeHandler;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 
@@ -18,9 +25,16 @@ public class SecurityConfig {
 
     @Bean
     SecurityFilterChain filterChain (HttpSecurity http) throws Exception {
+        CsrfTokenRequestAttributeHandler requestHandler = new CsrfTokenRequestAttributeHandler();
+        requestHandler.setCsrfRequestAttributeName("_csrf");
 
-        http.
-                csrf().disable()
+//        http.
+//                csrf().disable()
+//                .authorizeHttpRequests()
+//                .requestMatchers("/mypage","/order","/member/modify","mileage","/coupon","/address").authenticated()
+//                .requestMatchers("/","/cart","/man","/woman","/goodprice","/login","/signup").permitAll();
+        http.securityContext().requireExplicitSave(false)
+                .and().sessionManagement( session -> session.sessionCreationPolicy(SessionCreationPolicy.ALWAYS))
                 .cors(corsCustomizer -> corsCustomizer.configurationSource(new CorsConfigurationSource() {
                     @Override
                     public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
@@ -30,11 +44,25 @@ public class SecurityConfig {
                         config.setAllowedMethods(Collections.singletonList("*"));
                         config.setAllowCredentials(true);
                         config.setAllowedHeaders(Collections.singletonList("*"));
-                        config.setExposedHeaders(Arrays.asList("Authorization"));
                         config.setMaxAge(3600L);
                         return config;
                     }
                 }));
+        http
+                .csrf((csrf) -> csrf.csrfTokenRequestHandler(requestHandler).ignoringRequestMatchers("/login", "/signup","/join")
+                        .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
+                .addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class)
+                .authorizeHttpRequests()
+                    .requestMatchers("/mypage", "/order", "/member/modify", "mileage", "/coupon", "/address").authenticated()
+                    .requestMatchers("/", "/cart", "/man", "/woman", "/goodprice", "/login", "/signup", "/join").permitAll()
+                    .and()
+                    .formLogin(Customizer.withDefaults())
+                    .httpBasic(Customizer.withDefaults());
         return http.build();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
     }
 }

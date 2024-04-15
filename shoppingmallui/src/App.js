@@ -16,6 +16,8 @@ import Item from './component/Item';
 import QnA from './component/QnA';
 import Cart from './component/Cart';
 import QnAWrite from './component/QnAWrite';
+import AuthRoute from './api/AuthRoute';
+
 
 function App() {
   return (
@@ -29,7 +31,11 @@ function App() {
           <Route path="/order" element={<Order />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/mileage" element={<Mileage />} />
-          <Route path="/mypage" element={<Mypage />} />
+          <Route path="/mypage" element={
+            <AuthRoute>
+              <Mypage />
+            </AuthRoute>
+          } />
           <Route path="/" element={<Item />} />
           <Route path="/login" element={<Login />} />
           <Route path="/qna" element={<QnA />} />
