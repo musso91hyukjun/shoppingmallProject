@@ -3,8 +3,11 @@ import { faBars, faMagnifyingGlass, faUser, faBagShopping } from '@fortawesome/f
 import s from '../css/Header.module.css';
 import cn from 'classnames';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../api/AuthContext';
 
 export default function Header() {
+
+    const authContext = useAuth();
 
     return (
         <header className="d-flex justify-content-between w-100 fs-5 position-fixed">
@@ -37,7 +40,7 @@ export default function Header() {
                         <ul className='member d-flex justify-content-between mb-5 ps-3 pe-3'>
                             <li><a href="">MYPAGE</a></li>
                             <li><a href="">VIEW</a></li>
-                            <Link to={"/qna"}><li><a href="">Q&A</a></li></Link>
+                            <Link to={"/qna"}><li>Q&A</li></Link>
                             <li><a href="">REVIEW</a></li>
                             <li><a href="">NOTICE</a></li>
                         </ul>
@@ -50,6 +53,9 @@ export default function Header() {
 
             {/* 검색, 마이페이지, 장바구니 */}
             <div className="info_Group d-flex justify-content-center gap-3">
+                {!authContext.isLogin && <Link className="btn btn-primary" to="/login">Login</Link>}
+                {authContext.isLogin && <div className="btn btn-primary" >Logout</div>}
+                {!authContext.isLogin && <Link className="btn btn-primary" to="/signin">Sign in</Link>}
                 <div><FontAwesomeIcon icon={faMagnifyingGlass} style={{ color: "#B197FC", }} data-bs-toggle="modal" data-bs-target="#searchModal" /></div>
                 <div><Link to="/mypage"><FontAwesomeIcon icon={faUser} style={{ color: "#B197FC", }} /></Link></div>
                 <div><Link to="/cart"><FontAwesomeIcon icon={faBagShopping} style={{ color: "#B197FC", }} /></Link></div>

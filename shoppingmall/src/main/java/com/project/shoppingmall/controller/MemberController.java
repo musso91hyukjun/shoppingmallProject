@@ -4,11 +4,11 @@ import com.project.shoppingmall.dto.MemberDto;
 import com.project.shoppingmall.repository.MemberRepository;
 import com.project.shoppingmall.service.MemberService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
 
 @RestController
 @RequiredArgsConstructor
@@ -22,11 +22,14 @@ public class MemberController {
 
         return memberService.join(member);
     }
-
     @PostMapping("/login")
-    public ResponseEntity<MemberDto> login(@RequestBody MemberDto member){
+    public ResponseEntity<?> login(@RequestBody MemberDto member){
 
+        System.out.println(member);
         return memberService.login(member);
+
     }
+
+
 
 }

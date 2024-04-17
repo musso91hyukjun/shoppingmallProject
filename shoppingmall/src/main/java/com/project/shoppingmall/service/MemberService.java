@@ -28,32 +28,28 @@ public class MemberService {
         member.changePassword(encodePassword);
         memberRepository.save(member);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body("create success");
+        return ResponseEntity.status(HttpStatus.CREATED).body("success");
     }
 
 
-    public void duplicateMember(MemberDto member) {
+    private void duplicateMember(MemberDto member) {
         Optional<Member> findMember = memberRepository.findByUserid(member.getUserid());
         if (findMember.isPresent()) {
             throw new IllegalStateException("중복된 회원입니다");
         }
     }
 
-
-    public ResponseEntity<MemberDto> login(MemberDto member) {
+    public ResponseEntity<?> login(MemberDto member) {
         Optional<Member> findMembers = memberRepository.findByUserid(member.getUserid());
-        // 사용자가 있을경우
+
         if (findMembers.isPresent()) {
             if(passwordEncoder.matches(member.getPassword(), findMembers.get().getPassword())){
                 return ResponseEntity.status(HttpStatus.OK).body(findMembers.get().toDto());
             } else {
-                // 비밀번호 오류
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("비밀번호 오류");
             }
-
-        // 사용자가 없을 경우
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("해당 사용자 없음");
         }
     }
 }
