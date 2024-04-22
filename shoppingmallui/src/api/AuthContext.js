@@ -1,15 +1,19 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
-const AuthContext = createContext(null);
+const authContext = createContext();
+export const useAuth = () => useContext(authContext);
 
 export const AuthProvider = ({ children }) => {
-    const [isLogin, setLogin] = useState(false);
+    const [isLogin, setIsLogin] = useState(sessionStorage.getItem("isLogin") === "true");
+
+    useEffect(() => {
+        sessionStorage.setItem("isLogin", isLogin);
+    }, [isLogin]);
 
     return (
-        <AuthContext.Provider value={{ isLogin, setLogin }}>
+        <authContext.Provider value={{ isLogin, setIsLogin }}>
             {children}
-        </AuthContext.Provider>
+        </authContext.Provider>
     )
 }
 
-export const useAuth = () => useContext(AuthContext);

@@ -17,15 +17,19 @@ import QnA from './component/QnA';
 import Cart from './component/Cart';
 import QnAWrite from './component/QnAWrite';
 import AuthRoute from './api/AuthRoute';
+import { setInterceptores } from './api/HttpRequestInterceptor';
+import { AuthProvider } from './api/AuthContext';
 
+setInterceptores();
 
 function App() {
   return (
     <div className="App">
 
       <BrowserRouter>
-        <Header />
-        <Signup />
+        <AuthProvider>
+          <Header />
+        </AuthProvider>
         <Routes>
           <Route path="/member/modify" element={<ModifyProfile />} />
           <Route path="/order" element={<Order />} />
@@ -42,6 +46,7 @@ function App() {
           <Route path='/qnaWrite' element={<QnAWrite />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
+
       </BrowserRouter>
     </div>
   );

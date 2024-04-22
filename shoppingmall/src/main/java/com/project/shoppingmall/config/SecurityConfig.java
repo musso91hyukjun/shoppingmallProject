@@ -49,15 +49,13 @@ public class SecurityConfig {
                     }
                 }));
         http
-                .csrf((csrf) -> csrf.csrfTokenRequestHandler(requestHandler).ignoringRequestMatchers("/login", "/signup","/join")
+                .csrf((csrf) -> csrf.csrfTokenRequestHandler(requestHandler).ignoringRequestMatchers("/signup","/login")
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
                 .addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class)
                 .authorizeHttpRequests()
-                    .requestMatchers("/mypage", "/order", "/member/modify", "mileage", "/coupon", "/address").authenticated()
-                    .requestMatchers("/", "/cart", "/man", "/woman", "/goodprice", "/login", "/signup", "/join").permitAll()
-                    .and()
-                    .formLogin(Customizer.withDefaults())
-                    .httpBasic(Customizer.withDefaults());
+                .requestMatchers("/mypage").authenticated()
+                .requestMatchers("/home","/login").permitAll();
+
         return http.build();
     }
 

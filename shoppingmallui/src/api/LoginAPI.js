@@ -13,11 +13,18 @@ export const login = async (credentials) => {
     try {
         const response = await apiClient.post('/login', credentials);
 
-        const csrfToken = response.data.csrfToken;
-
-        localStorage.setItem('csrfToken', csrfToken);
-        return response;
+        if (response.status === 200) {
+            const csrfToken = response.headers["x-xsrf-token"];
+            if (csrfToken) {
+                sessionStorage.setItem("csrfToken", csrfToken)
+            }
+            sessionStorage.setItem("isLogin", "true");
+            return response;
+        } else {
+            throw new Error('로그인 실패');
+        }
     } catch (error) {
         throw error;
     }
+
 }
