@@ -1,5 +1,8 @@
 package com.project.shoppingmall.controller;
 
+
+import com.project.shoppingmall.config.PasswordEncoderConfig;
+import com.project.shoppingmall.domain.Member;
 import com.project.shoppingmall.dto.MemberDto;
 import com.project.shoppingmall.repository.MemberRepository;
 import com.project.shoppingmall.service.MemberService;
@@ -14,20 +17,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class MemberController {
 
-    private final MemberService memberService;
     private final MemberRepository memberRepository;
+    private final MemberService memberService;
 
-    @PostMapping("/join")
-    public ResponseEntity<String> join(@RequestBody MemberDto member) {
 
-        return memberService.join(member);
-    }
-    @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody MemberDto member){
+    @PostMapping("/signup")
+    private ResponseEntity<String> signup(@RequestBody MemberDto memberDto) {
 
-        System.out.println(member);
-        return memberService.login(member);
-
+        return memberService.signup(memberDto);
     }
 
 

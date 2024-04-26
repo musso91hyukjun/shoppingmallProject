@@ -2,19 +2,19 @@ import axios from "axios";
 
 const apiClient = axios.create(
     {
-        baseURL: "http://localhost:9999"
+        baseURL: "http://localhost:9999/"
     }
 )
 
 export const signup =
-    (formData) => apiClient.post(`/signup`, formData);
+    (formData) => apiClient.get(`/api/signup`, formData);
 
 export const login = async (credentials) => {
     try {
-        const response = await apiClient.post('/login', credentials);
+        const response = await apiClient.post('/perform_login', credentials);
 
         if (response.status === 200) {
-            const csrfToken = response.headers["x-xsrf-token"];
+            const csrfToken = response.headers["X-XSRF-TOKEN"];
             if (csrfToken) {
                 sessionStorage.setItem("csrfToken", csrfToken)
             }

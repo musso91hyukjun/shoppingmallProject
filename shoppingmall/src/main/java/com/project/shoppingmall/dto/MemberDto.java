@@ -1,43 +1,44 @@
 package com.project.shoppingmall.dto;
 
-import com.project.shoppingmall.domein.*;
-import lombok.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.project.shoppingmall.domain.*;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import static com.project.shoppingmall.domain.QMember.member;
 
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class MemberDto {
 
+
+    @JsonIgnore
     private Long id;
     private String userid;
     private String password;
     private String username;
     private String tel;
     private int mileage;
+
+    @Embedded
     private Address address;
+
+    @Embedded
     private Account account;
+
+    @Enumerated(EnumType.STRING)
     private UserTypes userType;
+
     private Cart cart;
 
-    public MemberDto(Member member) {
+    public Member toEntity(){
 
-        this.userid = member.getUserid();
-        this.password = member.getPassword();
-        this.username = member.getUsername();
-        this.tel = member.getTel();
-        this.mileage = member.getMileage();
-        this.address = member.getAddress();
-        this.account = member.getAccount();
-        this.userType = member.getUserType();
-        this.cart = member.getCart();
+        return new Member(userid, password, username, tel, mileage, address, account, userType, cart);
     }
 
-    public Member toEntity() {
-
-        return new Member
-                (id, userid, password,
-                username, tel, mileage, address,
-                account, userType, cart);
-    }
 
 }
