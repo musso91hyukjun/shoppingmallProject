@@ -29,12 +29,13 @@ function App() {
       <BrowserRouter>
         <AuthProvider>
           <Header />
+
         </AuthProvider>
         <Routes>
           <Route path="/member/modify" element={<ModifyProfile />} />
-          <Route path="/order" element={<Order />} />
+          <Route path="/mypage/order" element={<Order />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/mileage" element={<Mileage />} />
+          <Route path="/mypage/mileage" element={<Mileage />} />
           <Route path="/mypage" element={
             <AuthRoute>
               <Mypage />
