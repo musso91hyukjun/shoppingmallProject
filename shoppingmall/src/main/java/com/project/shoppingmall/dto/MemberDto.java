@@ -1,12 +1,18 @@
 package com.project.shoppingmall.dto;
 
-import com.project.shoppingmall.domein.*;
-import lombok.*;
+
+import com.project.shoppingmall.domain.*;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+import static jakarta.persistence.FetchType.LAZY;
 
 @Getter @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@ToString
 public class MemberDto {
+
 
     private Long id;
     private String userid;
@@ -14,30 +20,31 @@ public class MemberDto {
     private String username;
     private String tel;
     private int mileage;
+
+    @Embedded
     private Address address;
+
+    @Embedded
     private Account account;
+
+    @Enumerated(EnumType.STRING)
     private UserTypes userType;
+
     private Cart cart;
 
-    public MemberDto(Member member) {
-
-        this.userid = member.getUserid();
-        this.password = member.getPassword();
-        this.username = member.getUsername();
-        this.tel = member.getTel();
-        this.mileage = member.getMileage();
-        this.address = member.getAddress();
-        this.account = member.getAccount();
-        this.userType = member.getUserType();
-        this.cart = member.getCart();
-    }
 
     public Member toEntity() {
-
-        return new Member
-                (id, userid, password,
-                username, tel, mileage, address,
-                account, userType, cart);
+        return new Member(
+                id,
+                userid,
+                password,
+                username,
+                tel,
+                mileage,
+                address,
+                account,
+                userType,
+                cart
+        );
     }
-
 }

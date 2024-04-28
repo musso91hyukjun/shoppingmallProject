@@ -1,4 +1,4 @@
-package com.project.shoppingmall.domein;
+package com.project.shoppingmall.domain;
 
 import java.util.Arrays;
 import java.util.List;

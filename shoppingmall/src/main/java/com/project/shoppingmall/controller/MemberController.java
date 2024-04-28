@@ -7,29 +7,27 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/api")
 public class MemberController {
 
-    private final MemberService memberService;
     private final MemberRepository memberRepository;
+    private final MemberService memberService;
 
-    @PostMapping("/join")
-    public ResponseEntity<String> join(@RequestBody MemberDto member) {
+    @PostMapping("/signup")
+    public ResponseEntity<String> signup(@RequestBody MemberDto request) {
 
-        return memberService.join(member);
+        return memberService.signup(request);
     }
+
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody MemberDto member){
+    public ResponseEntity<String> login(@RequestBody MemberDto request) {
 
-        System.out.println(member);
-        return memberService.login(member);
-
+        return memberService.login(request);
     }
-
-
 
 }

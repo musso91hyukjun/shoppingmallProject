@@ -1,4 +1,4 @@
-package com.project.shoppingmall.domein;
+package com.project.shoppingmall.domain;
 
 public enum ItemSize {
     FREE,

@@ -1,4 +1,4 @@
-package com.project.shoppingmall.domein;
+package com.project.shoppingmall.domain;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
